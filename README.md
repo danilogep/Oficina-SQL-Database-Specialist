@@ -4,7 +4,7 @@ Modelagem completa de uma oficina mecânica em MySQL: do cenário de negócio ao
 com ordens de serviço que **congelam o preço praticado no momento da venda**.
 
 > **Tem outro projeto SQL meu?** Tem, e eles não se repetem:
-> [**SQL-Database-Specialist**](https://github.com/danilogep/SQL-Database-Specialist)
+> [**Ecommerce-SQL-Database-Specialist**](https://github.com/danilogep/Ecommerce-SQL-Database-Specialist)
 > é o de e-commerce, e vai mais fundo em *performance* — índices medidos com
 > benchmark, stored procedure, triggers de auditoria e transações sobre 100 mil
 > pedidos. **Este aqui é sobre modelagem**: o problema central não é velocidade, é
@@ -76,7 +76,7 @@ Abaixo estão os resultados práticos das queries SQL desenvolvidas para respond
 
 1.  **Clonar o Repositório:**
     ```bash
-    git clone [https://github.com/danilogep/Oficina-SQL-Database-Specialist](https://github.com/danilogep/Oficina-SQL-Database-Specialist)
+    git clone https://github.com/danilogep/Oficina-SQL-Database-Specialist
     ```
 2.  **Criar o Banco:**
     Abra o arquivo `script_tabelas.sql` no seu SGBD e execute para criar a estrutura.
