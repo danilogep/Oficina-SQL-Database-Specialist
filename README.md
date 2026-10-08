@@ -1,6 +1,15 @@
-# 🔧 Sistema de Gerenciamento de Oficina Mecânica
+# Oficina mecânica — modelagem de banco de dados
 
-Projeto de banco de dados completo (do zero a query) desenvolvido para um cenário de oficina mecânica. O projeto abrange a modelagem conceitual, lógica, criação do schema SQL, inserção de dados e uma bateria de testes com queries complexas.
+Modelagem completa de uma oficina mecânica em MySQL: do cenário de negócio ao schema,
+com ordens de serviço que **congelam o preço praticado no momento da venda**.
+
+> **Tem outro projeto SQL meu?** Tem, e eles não se repetem:
+> [**SQL-Database-Specialist**](https://github.com/danilogep/SQL-Database-Specialist)
+> é o de e-commerce, e vai mais fundo em *performance* — índices medidos com
+> benchmark, stored procedure, triggers de auditoria e transações sobre 100 mil
+> pedidos. **Este aqui é sobre modelagem**: o problema central não é velocidade, é
+> como representar um histórico financeiro que não pode mudar quando a tabela de
+> preços muda.
 
 ## 📋 Visão Geral do Desafio
 
