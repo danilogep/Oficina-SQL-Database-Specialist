@@ -1,0 +1,38 @@
+# Sobe um MySQL 8 com a modelagem inteira aplicada, em um comando:
+#
+#   docker compose up -d
+#   docker compose logs -f db      # acompanhe até "ready for connections"
+#
+# Conectar:  mysql -h 127.0.0.1 -P 3306 -u root -proot oficina_mecanica_refinado
+#
+# Porta ocupada por outro projeto? Troque sem editar nada:
+#   MYSQL_PORT=3310 docker compose up -d
+
+services:
+  db:
+    image: mysql:8.4
+    container_name: oficina_mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Os scripts entram um a um, e não a pasta inteira: o MySQL executa tudo
+      # que encontrar em /docker-entrypoint-initdb.d em ordem alfabética, e um
+      # .mwb ou um dump avulso ali dentro quebraria a inicialização.
+      - ./sql_implementation/01_tabelas.sql:/docker-entrypoint-initdb.d/01_tabelas.sql:ro
+      - ./sql_implementation/02_insert.sql:/docker-entrypoint-initdb.d/02_insert.sql:ro
+      - ./sql_implementation/03_perguntas.sql:/docker-entrypoint-initdb.d/03_perguntas.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
+
+volumes:
+  mysql_data:

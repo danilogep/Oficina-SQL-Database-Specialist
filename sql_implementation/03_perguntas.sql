@@ -1,3 +1,9 @@
+-- Charset explicito na conexao: o entrypoint do container mysql executa os
+-- scripts com o cliente nos padroes dele, e sem isto um arquivo UTF-8 e
+-- lido como latin1 ('Joao' entra como 'JoA£o').
+SET NAMES utf8mb4;
+USE oficina_mecanica_refinado;
+
 SELECT Descricao, Valor_Mao_Obra 
 FROM Servico
 WHERE Valor_Mao_Obra > 60.00

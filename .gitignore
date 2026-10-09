@@ -1,0 +1,5 @@
+# Backups do Workbench
+*.mwb.bak
+
+# Dumps locais
+*.sql.gz

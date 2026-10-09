@@ -1,5 +1,11 @@
+SET NAMES utf8mb4;
+
 -- Criação do Banco de Dados
-CREATE DATABASE IF NOT EXISTS oficina_mecanica_refinado;
+-- DROP antes do CREATE: com `IF NOT EXISTS` sozinho, rodar o script duas vezes
+-- para em "Table 'Cliente' already exists" na segunda. A sequência inteira
+-- precisa ser repetível do zero.
+DROP DATABASE IF EXISTS oficina_mecanica_refinado;
+CREATE DATABASE oficina_mecanica_refinado;
 USE oficina_mecanica_refinado;
 
 -- 1. Tabela Cliente

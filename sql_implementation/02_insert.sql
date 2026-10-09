@@ -1,3 +1,9 @@
+-- Charset explicito na conexao: o entrypoint do container mysql executa os
+-- scripts com o cliente nos padroes dele, e sem isto um arquivo UTF-8 e
+-- lido como latin1 ('Joao' entra como 'JoA£o').
+SET NAMES utf8mb4;
+USE oficina_mecanica_refinado;
+
 -- Inserindo Clientes
 INSERT INTO Cliente (Nome, CPF, Endereco, Telefone) VALUES
 ('João Silva', '12345678901', 'Rua das Flores, 123', '(11) 99999-1111'),
